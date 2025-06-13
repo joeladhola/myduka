@@ -205,3 +205,41 @@ a) templates
 b) static
 
 watcher -> checking for any changes in your application and reloading it
+
+
+To return/ render html pages we need to have the templates and static folder
+The folders have to have that exact casing and spelling
+
+render -> serve a html page with flask
+Goal: display a html page using flask
+templates -> all your html files
+           -> all html files MUST be here
+
+static -> all static files - files that dont change much
+       -> css files
+       -> images
+       -> js files
+       -> favicon
+       -> fonts, pdf files
+
+To render html pages using Flask, we use functions provided by Flask
+  render_template() - function
+  -you have to import it from flask
+  -render_template() -> can take some parameters
+  1. full name of a html page
+  2. variables
+
+  Jinja -> templating engine integrated with Flask to render dynamic HTML pages
+
+  * jinja is just syntax
+  how to use Jinja with variables:
+
+  TAsk;
+  Create this routes
+  1. products
+  2. sales
+  3. dashboard
+  4. login
+  5. register
+  They shld all return their html pages
+  in each of those routes render a random variable of your choice using Jinja

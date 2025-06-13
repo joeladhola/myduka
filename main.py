@@ -1,16 +1,21 @@
-from flask import Flask
+from flask import Flask, render_template
 
 #creating a Flask instance
 app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return "Alchemist Mo"
+    return render_template("index.html")
+
+@app.route('/products')
+def prod():
+    product = "eggs"
+    return render_template("products.html",data = product)
 
 
-@app.route('/name')
-def name():
-    return "My name is Joel"
+@app.route('/sales')
+def sales():
+    return render_template("sales.html")
 
 
 @app.route('/about')
@@ -29,4 +34,4 @@ def more():
 
 
 
-app.run()  
+app.run(debug=True)  
