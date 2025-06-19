@@ -1,4 +1,5 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect, url_for
+from database import get_products, get_sales, insert_products
 
 #creating a Flask instance
 app = Flask(__name__)
@@ -9,28 +10,47 @@ def home():
 
 @app.route('/products')
 def prod():
-    product = "eggs"
-    return render_template("products.html",data = product)
+    products = get_products()
+    return render_template("products.html",products=products)
+
+@app.route('/add_products', methods=['GET','POST'])
+def addprods():
+    product_name = request.form["product_name"]
+    buying_price = request.form["buying_price"]
+    selling_price = request.form["selling_price"]
+    new_products = (product_name,buying_price,selling_price)
+    insert_products(new_products)
+    return redirect(url_for('prod'))
+
 
 
 @app.route('/sales')
 def sales():
-    return render_template("sales.html")
+    
+    sales = get_sales()
+    return render_template("sales.html",sales=sales)
 
 
-@app.route('/about')
-def about():
-    return "About Joel"
+@app.route('/stock')
+def stock():
+    return render_template("stock.html")
+
+@app.route('/dashboard')
+def dashboard():
+    dash = "The Dashboard"
+    return render_template("dashboard.html",data2 = dash)
+
+@app.route('/login')
+def login():
+    numbers = [1,2,3,4,5,6,7,8,9,10]
+    return render_template("login.html",numbers=numbers)
+
+@app.route('/register')
+def register():
+    return render_template("register.html")
 
 
-@app.route('/service')
-def service():
-    return "Services offered by Joel"
 
-
-@app.route('/more')
-def more():
-    return "More about Joel"
 
 
 

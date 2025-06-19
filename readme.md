@@ -243,3 +243,122 @@ To render html pages using Flask, we use functions provided by Flask
   5. register
   They shld all return their html pages
   in each of those routes render a random variable of your choice using Jinja
+
+
+
+  JINJA -> templating engine integrated with Flask to render dynamic HTML pages
+  -> dosplay our data from Python in HTML
+
+  HOW IT WORKS
+  1. Templates - predefined HTML files - define Jinja sntax here with placeholders e.g variables
+  2. Data - application provides the data - variables
+  3. Rendering - Jinja processes the template and replaces the placeholders with actual data
+
+  JInja Syntax
+  1. variables - {{}}
+  e.g name = "Jane Doe"
+      {{name}}
+  2. Logic / Control Structures {% %}
+  - for control structures 
+  a) initialise it
+  b) write logic
+  c) end it _ terminate the control structure
+
+  {% if x == 10 %}
+     //logic goes here
+  {% end if%} --- terminate control structure
+  
+
+
+
+
+
+  Control Structures in Programming
+  --> Way to specify flow of control in Programs
+
+  1. Sequential flow / Sequential Logic
+  - Instructions follow a sequential order usually top to bottom
+
+  2. Selection 
+  - Conditional statements - decision makers - if else
+  
+  3. Iteration
+  - looping - executing an instruction until a condition is met - for while
+
+
+
+
+TASK
+1. Get a Bootstrap Navbar- cdn files-->css,js
+2. Get a Bootstrap styled table - 4columns-> id,product_name, buying_price, selling_price
+
+- display products in that table
+
+
+
+
+TASK
+** build the navbar
+display sales data using a Bootstrap table on sales page
+--> stock before sales
+
+
+
+Get a Bootstrap modal.. in that modal have a form with input fields... product name, buying price, selling price
+
+
+POSTING DATA
+Posting - sending information from a client (e.g web browser) to server processing and storage
+Client - an entity that sends a HTTP rquest to a server
+
+Data flow
+
+1. User visits a route in your application - flask will route
+2. User fills out a form and submits the form
+3. Flask will find a route to execute a function using specified info from the form
+4. Once route is found, Flask extracts data from the form using request.form, validates and saves it
+5. User is directed
+
+
+Request 
+-> An object from request class that provides access to data from a HTTP request
+- it contains all details about the request made by the client
+- allows you to:
+1. access data sent by the client e.g form data
+2. allow you to work with http methods
+
+HTTP methods - a way of telling a server what to do with data
+1. GET - get data
+2. POST - send data 
+3. PUT - updating data
+4. DELETE - getting rid from data
+
+request.method - gives you the http method from the client
+request.form - allows you to access form data from the client for processing
+
+- data is coming in string form in key value pairs
+- retrieves form data using keys
+
+1. without modal
+2. with modal
+
+
+Checklist in posting data
+1. correct input type
+2. action - route - where should my form data be taken
+3. method - what the Server should do with form data
+4. name - key used by request.form to extract form values
+5. button type submit
+
+HTTP status codes - 3 digit numbers returned by a server to indicate the result of a request
+starting with:
+1 - Informational
+2 - Success
+3 - Redirection
+4 - Client error
+5 - Server error
+
+
+Remarks:
+1. url_for() takes the name of the view function as a parameter and not the route name
+2. not every single route is return a html page

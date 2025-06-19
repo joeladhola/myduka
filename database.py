@@ -50,6 +50,6 @@ insert_sales(sales_values1)
 insert_sales(sales_values2)
 
 sales_data = get_sales()
-print(sales_data)
+
 
     
