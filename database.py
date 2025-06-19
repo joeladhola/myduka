@@ -38,18 +38,31 @@ def insert_products(values):
 
 
 def insert_sales(values):
-    sales_query= "insert into sales(pid,quantity,created_at)values(%s,%s,%s)"
+    sales_query= "insert into sales(pid,quantity,created_at)values(%s,%s,now())"
     cur.execute(sales_query,values)
     conn.commit()
 
 
-sales_values1 = (8,26,'now()')
-sales_values2 = (9,33,'now()')
+#sales_values1 = (8,26)
+#sales_values2 = (9,33)
 
-insert_sales(sales_values1)
-insert_sales(sales_values2)
+#insert_sales(sales_values1)
+#insert_sales(sales_values2)
 
-sales_data = get_sales()
+#sales_data = get_sales()
 
+
+def insert_stock(values):
+    stock_query= "insert into stock(pid,stock_quantity,created_at)values(%s,%s,now())"
+    cur.execute(stock_query,values)
+    conn.commit()
+
+def get_stock():
+    cur.execute("select * from stock;")
+    stock = cur.fetchall()
+    return stock
+
+stock = get_stock()
+print(stock)
 
     

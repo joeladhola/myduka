@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for
-from database import get_products, get_sales, insert_products
+from database import get_products, get_sales, insert_products, insert_stock, get_stock
 
 #creating a Flask instance
 app = Flask(__name__)
@@ -33,7 +33,17 @@ def sales():
 
 @app.route('/stock')
 def stock():
-    return render_template("stock.html")
+    products = get_products()
+    stock = get_stock()
+    return render_template("stock.html",products=products,stock=stock)
+
+@app.route('/add_stock', methods=['GET','POST'])
+def add_stock():
+    pid = request.form['pid']
+    stock_quantity = request.form['stock']
+    new_stock = (pid,stock_quantity)
+    insert_stock(new_stock)
+    return redirect(url_for('stock'))
 
 @app.route('/dashboard')
 def dashboard():

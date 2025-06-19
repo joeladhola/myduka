@@ -362,3 +362,15 @@ starting with:
 Remarks:
 1. url_for() takes the name of the view function as a parameter and not the route name
 2. not every single route is return a html page
+
+
+POST STOCK ->
+We have our product data -
+sales table is exactly like stock table
+
+
+TASK
+Implement Making Sale
+Hint: - making a sale is  exactly like adding stock
+**
+Use data tables for your products and sales data 
