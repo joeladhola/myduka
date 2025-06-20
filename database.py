@@ -63,6 +63,16 @@ def get_stock():
     return stock
 
 stock = get_stock()
-print(stock)
+
+
+
+def sales_per_product():
+    cur.execute("""
+     select products.name,sum(sales.quantity * products.seling_price) as revenue from products join sales
+on products.id = sales.pid group by(products.name);
+
+""")
+    sales_product = cur.fetchall()
+    return sales_product
 
     

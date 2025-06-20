@@ -347,6 +347,7 @@ Checklist in posting data
 1. correct input type
 2. action - route - where should my form data be taken
 3. method - what the Server should do with form data
+
 4. name - key used by request.form to extract form values
 5. button type submit
 
@@ -374,3 +375,28 @@ Implement Making Sale
 Hint: - making a sale is  exactly like adding stock
 **
 Use data tables for your products and sales data 
+
+
+Make a Sale
+To only make sales if we have enough stock
+
+to make sales and update stock
+
+task;
+- attempt to update stock after making sale
+- only make sales if you have enough stock
+- write the following sql queries in python ;
+1. sales per day
+2. sales per product
+3. profit per day
+4. profit per product
+
+sales per product
+- sales - product
+foreign key - a primary key in another table used to link tables
+
+select products.name,sum(sales.quantity * products.seling_price) as revenue from products join sales
+on products.id = sales.pid group by(products.name);
+
+HINT: for per day
+date.function
