@@ -12,52 +12,76 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary"></nav>
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">myDuka</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/products">Products</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/sales">Sales</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/stock">Stock</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/dashboard">Dashboard</a>
-        </li>
-        <form class="d-flex" role="search" style="margin-left: 600px;">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
-    </div>
+  <div class="container">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">myDuka</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item" style="margin-left: 130px;">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item" style="margin-left: 130px;"></li>
+              <a class="nav-link" href="/products">Products</a>
+            </li>
+            <li class="nav-item" style="margin-left: 130px;"></li>
+              <a class="nav-link" href="/stock">Stock</a>
+            </li>
+            <li class="nav-item" style="margin-left: 130px;"></li>
+              <a class="nav-link" href="/sales">Sales</a>
+            </li>
+            <li class="nav-item" style="margin-left: 130px;">
+              <a class="nav-link" href="/dashboard">Dashboard</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
   </div>
-  </nav>
-
+  
 
   <div>
-    <form action="/add_stock" method="post">
-      <select name="pid" id="">
-        <option value="">Select Product</option>
-        {% for product in products %}
-        <option value="{{product[0]}}">{{product[1]}}</option>
-        {% endfor %}
+    <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+style="margin-left: 350px; padding-left: 200px; padding-right: 200px; padding-top: 10px; padding-bottom: 10px;
+    margin-top: 10px;">
+  ADD STOCK
+</button>
 
-      </select><br>
-      <label for="">Stock Quantity</label>
-      <input type="number" name="stock"><br>
-      <button type="submit">Add Number</button>
-    </form>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Add Stock</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="/add_stock" method="post">
+          <div class="mb-3">
+            <select class="form-select" aria-label="Default select example" name="pid">
+              <option selected>Select a Product</option>
+              {% for product in products %}
+              <option value="{{product[0]}}">{{product[1]}}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Quantity</label>
+            <input type="number" class="form-control" id="exampleInputPassword1" name="stock">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Add Stock</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
   </div>
 
   <div>
