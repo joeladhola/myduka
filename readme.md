@@ -395,8 +395,54 @@ sales per product
 - sales - product
 foreign key - a primary key in another table used to link tables
 
-select products.name,sum(sales.quantity * products.seling_price) as revenue from products join sales
+
+# sales per product
+select products.name,sum(sales.quantity * products.selling_price) as revenue from products join sales
 on products.id = sales.pid group by(products.name);
+
+# profit per product
+select products.name,sum(sales.quantity * (products.selling_price-products.buying_price)) as daily_profit from products join sales
+on products.id = sales.pid group by(products.name);
+
+# sales per day
+
+select date(sales.created_at) as date, sum(sales.quantity * products.selling_price) as sales from sales join products on products.id = sales.pid group by date order by date asc;
+
+
+# profit per day
+select date(sales.created_at) as date, sum(sales.quantity * (products.selling_price - products.buying_price)) as sales from sales join products on products.id = sales.pid group by date order by date asc;
+
 
 HINT: for per day
 date.function
+
+
+
+
+
+
+
+
+
+
+stock_available = total_stock - total_sold
+
+
+# total stock
+select sum(stock.stock_quantity) from stock where pid = %s
+
+
+
+
+TEMPLATE INHERITANCE
+For your navbars, you had to replicate it across all pages in html
+Feature that allows you to define a layout template for the rest of the templates in your Flask application
+Helps us avoid repetition and organize our code better
+If you resolve that you're going to have common components across all pages
+navbar & footer
+
+define a layout template having common components of your application
+-> base  -> layout
+
+outside block content- what to appear across all
+inside block content - defines what is unique to each
