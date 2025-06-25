@@ -446,3 +446,41 @@ define a layout template having common components of your application
 
 outside block content- what to appear across all
 inside block content - defines what is unique to each
+
+
+FLASH MESSAGING / FLASHING
+One time notifications to the user while interacting with the application 
+In flask flash messaging is implemented using flash () function
+Messages have categories along with colors to distinguish 
+info - blue
+success - green
+error/danger - red
+warning - yellow
+
+Flash messages are stored in cookies in your browser
+
+cookie - small piece of data stored in the user's web browser allowing a server to remember info between requests
+For you to store data in a cookie you need a secret key
+
+Flask is using a secret key as a signature to validate data coming from the cookie
+
+token vs cookie
+where are messages stored?
+-cookies -> piece of data stored in the browser by the server to store memory of user details or general info from the server
+
+how do i implement messaging in flask?
+1. flash() -> function used to display messages
+           -> can take some parameters:
+           a) Message to be displayed
+           b) Message category
+2. secret key - signature used to validate data coming from a cookie
+
+encoded data = data + secret key
+1. user logs into netflix using email and password and then closes the tab
+2. they open up the browser again and try to access netflix again
+3. they are given direct access without logging in
+
+
+
+****
+delete all sales and stock data and test the data

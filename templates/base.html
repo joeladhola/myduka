@@ -44,6 +44,24 @@
             </div>
         </nav>
 
+        <div style="width: 30%;">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+            <div>
+                {% for category, message in messages %}
+                <div class="alert alert-{{ category }} alert-dismissable" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+
+                {% endfor %}
+
+            </div>
+            {% endif %}
+            {% endwith %}
+
+        </div>
+
 
         {% block content %}
 
