@@ -484,3 +484,47 @@ encoded data = data + secret key
 
 ****
 delete all sales and stock data and test the data
+
+
+DASHBORD
+Dashboard visualization with charts
+-> what data are we displaying?
+- sales per day
+- sales per product
+- profit per day
+- profit per product
+
+
+Aggregate Functions in SQL
+- when using aggregate functions in sql you have to group data by a queried column
+- SUM()
+- AVERAGE()
+- COUNT()
+- MAX()
+- MIN()
+
+Charts -> ChartJS Library
+Types -> bar charts, line charts, pie charts, histograms, scatter plots, bubble charts, area chart, frequency polygons
+
+
+1. Have data in the db
+2. Query this data using functions
+3. Import functions to flask to make database calls
+4. Data preparation -> processing the data to match chart format
+
+   Barchart -> sales per product, profit per product
+         -> x-axis -> static -> product names
+         -> y-axis -> dynamic -> sales & profit
+   Linechart -> sales per day, profit per day
+         -> x-axis -> day
+         -> y-axis -> sales & profit
+
+** go work on Python.
+
+List Comprehension
+product_names = []
+for i in sales_product:
+    product_names.append(i[1])
+print product_names
+
+product_names = [i[0] for i in sales_product]

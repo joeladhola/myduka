@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
-from database import get_products, get_sales,insert_sales, insert_products, insert_stock, get_stock, available_stock
+from database import get_products, get_sales,insert_sales, insert_products, insert_stock, get_stock, available_stock, sales_per_day, sales_per_product, profit_per_day, profit_per_product
 
 #creating a Flask instance
 app = Flask(__name__)
@@ -68,8 +68,28 @@ def add_stock():
 
 @app.route('/dashboard')
 def dashboard():
-    dash = "The Dashboard"
-    return render_template("dashboard.html",data2 = dash)
+    sales_product = sales_per_product()
+    profit_product = profit_per_product()
+    sales_day = sales_per_day()
+    profit_day = profit_per_day()
+
+    #product related dash data
+    product_names = [i[0] for i in sales_product]
+    sales_prod = [i[1] for i in sales_product]
+    prof_prod =[i[1] for i in profit_product]
+
+    #date related dash data
+    date = [i[0] for i in sales_day]
+    sales_of_day = [i[1] for i in sales_day]
+    profit_of_day = [i[1] for i in profit_day] 
+
+    return render_template("dashboard.html",
+                           product_names = product_names,
+                           sales_prod=sales_prod,
+                           prof_prod = prof_prod,
+                           date=date,
+                           sales_of_day=sales_of_day,
+                           profit_day=profit_of_day)
 
 @app.route('/login')
 def login():

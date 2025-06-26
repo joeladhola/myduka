@@ -44,7 +44,7 @@ stock = get_stock()
 
 def sales_per_product():
     cur.execute("""
-     select products.name,sum(sales.quantity * products.seling_price) as revenue from products join sales
+     select products.name,sum(sales.quantity * products.selling_price) as revenue from products join sales
 on products.id = sales.pid group by(products.name);
 
 """)
@@ -54,7 +54,7 @@ on products.id = sales.pid group by(products.name);
 
 def profit_per_product():
     cur.execute("""
-select products.name,sum(sales.quantity * (products.selling_price-products.buying_price)) as daily_profit from products join sales
+select products.name,sum(sales.quantity * (products.selling_price - products.buying_price)) as daily_profit from products join sales
 on products.id = sales.pid group by(products.name);
 """)
     profit_product = cur.fetchall()
@@ -86,6 +86,8 @@ def available_stock(pid):
     return total_stock - total_sold
 
 
+sales_product = sales_per_product()
+profit_product = profit_per_product()
 
 
     
