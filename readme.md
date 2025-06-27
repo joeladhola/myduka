@@ -528,3 +528,12 @@ for i in sales_product:
 print product_names
 
 product_names = [i[0] for i in sales_product]
+
+| -> filter operator -> modify elements before displaying
+safe keyword -> prevents escape sequence
+
+
+Go to star bootstrap
+Style HomePage - carousels. start bootstrap
+Headers & Footers - prod, stock & sales
+Hero Section - dashboard
