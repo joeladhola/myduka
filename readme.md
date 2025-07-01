@@ -350,6 +350,7 @@ Checklist in posting data
 
 4. name - key used by request.form to extract form values
 5. button type submit
+6. methods in route
 
 HTTP status codes - 3 digit numbers returned by a server to indicate the result of a request
 starting with:
@@ -537,3 +538,22 @@ Go to star bootstrap
 Style HomePage - carousels. start bootstrap
 Headers & Footers - prod, stock & sales
 Hero Section - dashboard
+
+
+
+USER REGISTRATION 
+
+request.form - used to access form values
+request.method - used to identify methods defined in form
+
+Steps In Registration
+1. check if a user exists or not
+2. protect user password - password hashing
+3. insert the user
+
+PASSWORD HASHING
+- the process of converting plain text passwords into a cryptographic form (hash) to prevent read and write interferences
+
+decode('utf-8')
+
+pip install flask-bcrypt

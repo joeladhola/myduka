@@ -86,8 +86,14 @@ def available_stock(pid):
     return total_stock - total_sold
 
 
-sales_product = sales_per_product()
-profit_product = profit_per_product()
+def check_user(email):
+    cur.execute("select * from users where users.email = %s",(email,))
+    user = cur.fetchone()
+    return user
 
+
+def insert_user(user_details):
+    cur.execute("insert into users(full_name,email,phone_number,password)values(%s,%s,%s,%s)",(user_details))
+    conn.commit()
 
     
