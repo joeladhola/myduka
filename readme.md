@@ -557,3 +557,25 @@ PASSWORD HASHING
 decode('utf-8')
 
 pip install flask-bcrypt
+
+
+1. login
+2. session
+3. logout
+4. page protection
+5. navbar protection
+
+Session
+are used to store user information between requests. 
+
+
+
+EXTRAS
+Edit a Product--1
+Using virtual environment--3
+ORM- flask sqlalchemy--4
+flask login
+context processor
+OOP - classes and objects--2
+
+w3schools, oficial documentation, geekforgeeks, Yt
